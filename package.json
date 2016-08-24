@@ -1,0 +1,42 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "Live Dashboard",
+  "main": "src/**/*.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1",
+    "build": "./node_modules/babel-cli/bin/babel.js src --out-dir lib --plugins transform-react-jsx --presets es2015",
+    "bundle": "./node_modules/browserify/bin/cmd.js lib/client.js -o public/app.js",
+    "start": "npm run build && npm run bundle && node lib/server.js",
+    "watch": "watch --ignoreDotFiles --ignoreDirectoryPattern=/node_modules/ 'npm run build && npm run bundle'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calendreco/dashboard.git"
+  },
+  "author": "Amy Hua",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/calendreco/dashboard/issues"
+  },
+  "homepage": "https://github.com/calendreco/dashboard#readme",
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-preset-es2015": "^6.13.2",
+    "browserify": "^13.1.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-concat": "^2.6.0",
+    "gulp-less": "^3.1.0",
+    "gulp-minify": "0.0.14",
+    "watch": "^0.19.2"
+  },
+  "dependencies": {
+    "ejs": "^2.5.1",
+    "express": "^4.14.0",
+    "react": "^15.3.0",
+    "react-addons-css-transition-group": "^15.3.0",
+    "react-dom": "^15.3.0"
+  }
+}
