@@ -1,7 +1,14 @@
+Node/Express/React/LESS/EJS Boilerplate.
+
+TODO: JS minification
+Run concurrent scripts.
+
 ## Development
 
 ```sh
-gulp watch # for less
-npm run start # start the server
-npm run watch # constantly compile
+# as separate processes
+npm run start
+npm run build
+npm run bundle
+npm run assets
 ```

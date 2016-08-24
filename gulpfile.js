@@ -2,11 +2,10 @@ var gulp = require('gulp');
 var less = require('gulp-less');
 var path = require('path');
 var cleanCSS = require('gulp-clean-css');
-var minifyçç = require('gulp-minify');
+var minify = require('gulp-minify');
 var concat = require('gulp-concat');
 
 gulp.task('less', function() {
-  // local development rendering
   return gulp.src('./src/components/**/*.less')
     .pipe(concat('app.css'))
     .pipe(less({
@@ -17,19 +16,19 @@ gulp.task('less', function() {
 });
 
 gulp.task('compress', function() {
-  gulp.src('src/components/**/*.js')
+  gulp.src('public/app.js')
     .pipe(concat('app.js'))
     .pipe(minify({
         ext:{
             src:'-debug.js',
             min:'.js'
-        },
-        // exclude: ['tasks'],
-        // ignoreFiles: ['.combo.js', '-min.js']
+        }
     }))
     .pipe(gulp.dest('./public/'))
 });
 
 gulp.task('watch', function() {
-  gulp.watch('src/**/*.less', ['less']); 
+  gulp.watch('src/**/*', ['less', 'compress']); 
 });
+
+gulp.task('default', ['watch']);

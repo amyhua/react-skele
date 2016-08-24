@@ -1,25 +1,25 @@
 {
-  "name": "dashboard",
+  "name": "react-skele",
   "version": "1.0.0",
-  "description": "Live Dashboard",
+  "description": "React Skele",
   "main": "src/**/*.js",
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
-    "build": "./node_modules/babel-cli/bin/babel.js src --out-dir lib --plugins transform-react-jsx --presets es2015",
-    "bundle": "./node_modules/browserify/bin/cmd.js lib/client.js -o public/app.js",
-    "start": "npm run build && npm run bundle && node lib/server.js",
-    "watch": "watch --ignoreDotFiles --ignoreDirectoryPattern=/node_modules/ 'npm run build && npm run bundle'"
+    "build": "./node_modules/babel-cli/bin/babel.js src --watch --out-dir lib --plugins transform-react-jsx --presets es2015",
+    "bundle": "watchify lib/client.js -o public/app.js",
+    "start": "node lib/server.js",
+    "assets": "gulp watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/calendreco/dashboard.git"
+    "url": "git+https://github.com/amyhua/react-skele.git"
   },
   "author": "Amy Hua",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/calendreco/dashboard/issues"
+    "url": "https://github.com/amyhua/react-skele/issues"
   },
-  "homepage": "https://github.com/calendreco/dashboard#readme",
+  "homepage": "https://github.com/amyhua/react-skele#readme",
   "devDependencies": {
     "babel-cli": "^6.11.4",
     "babel-plugin-transform-react-jsx": "^6.8.0",
@@ -30,7 +30,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-less": "^3.1.0",
     "gulp-minify": "0.0.14",
-    "watch": "^0.19.2"
+    "watchify": "^3.7.0"
   },
   "dependencies": {
     "ejs": "^2.5.1",
